@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styled from 'styled-components'
 
 const Title = styled.h1`
-  color: red;
+  color: #6c7ae0;
 `;
 const Container = styled.div`
   margin: 0 auto;
@@ -16,7 +16,7 @@ const Footer = styled.footer`
 
 export default function Layout({
   children,
-  title = 'Gazri Booster',
+  title,
 }) {
   return (
     <Container>
@@ -25,7 +25,7 @@ export default function Layout({
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <header> 
-            <Title>{title}</Title>
+            <Title>Gazri Booster - {title}</Title>
         </header>           
         {children}
         <Footer>{'Gazri Inc'}</Footer>

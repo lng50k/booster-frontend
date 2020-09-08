@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -9,6 +9,9 @@ const GlobalStyle = createGlobalStyle`
       src: url('/static/fonts/Montserrat-ExtraLight.ttf');
   }
   body {
+    font-family: 'Montserrat';
+  }
+  button {
     font-family: 'Montserrat';
   }
 `;

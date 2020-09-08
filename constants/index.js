@@ -26,7 +26,11 @@ export const customStyles = {
         style: {
             minHeight: '72px',
             borderBottomColor: '#f2f2f2',
-        }
+            '&:hover': {
+                backgroundColor: '#ececff',
+                cursor: 'pointer',
+            }
+        },
     },
     headRow: {
         style: {            
