@@ -50,3 +50,10 @@ export const customStyles = {
         },
     },
 };
+
+export const domainWhiteList = [
+    "booster.gazri.net",
+    "gazri.net",
+    "hii.gazri.com",
+    "rebox.gazri.com"
+]

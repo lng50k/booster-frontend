@@ -1,16 +1,18 @@
 import { useEffect, useState, useCallback, useMemo } from 'react'
 import DataTable from 'react-data-table-component'
 import Layout from '../components/layout'
-import {columns, customStyles} from '../constants'
+import {columns, customStyles, domainWhiteList} from '../constants'
 import ActionButton from '../components/button-with-row'
 import Button from '../components/button'
+import notify from '../components/store-notification'
+
 
 const ListAccounts = () => {
 
   const [appState, setAppState] = useState({
     loading: false,
     accounts: [],
-  });
+  });  
 
   useEffect(() => {
     setAppState({ loading: true });
@@ -18,6 +20,7 @@ const ListAccounts = () => {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((res) => {
+        notify("Accounts Data Successfully Fetched")
         setAppState({ loading: false, accounts: res.accounts.data.acct });
       });
   }, [setAppState]);
@@ -27,14 +30,25 @@ const ListAccounts = () => {
   }
 
   const [thing, setThing] = useState();
-  const handleAction = value => setThing(value);
+  const handleAction = event => {    
+    const apiUrl = `http://127.0.0.1:8000/api/v1/whm/account/${event.target.id}`;    
+    const requestOptions = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    fetch(apiUrl, requestOptions)
+      .then((res) => res.json())
+      .then((res) => {
+        notify(res.message, true)
+      });
+  }
   // unlike class methods updateState will be re-created on each render pass, therefore, make sure that callbacks passed to onSelectedRowsChange are memoized using useCallback
   const updateState = useCallback(state => console.log(state));
 
   const tableColumns = useMemo(() => [
     ...columns,
     {
-      cell: () => <Button text="X" type="button" active={true} onClick={handleAction}>Action</Button>,
+    cell: (row) => <Button text="X" type="button" active={!domainWhiteList.includes(row.domain)} id={row.user} onClick={handleAction}>Action</Button>,
       ignoreRowClick: true,
       allowOverflow: true,
       button: true,
@@ -43,7 +57,7 @@ const ListAccounts = () => {
 
 
   return (
-    <Layout title="Accounts">
+    <Layout title="Accounts">      
       <ActionButton text="Add" type="button" onClick={onAdd}/>
       <DataTable
         columns={tableColumns}

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../components/layout'
 import { useForm } from "react-hook-form";
 import { Input, Label } from '../components/styled-elements'
-import ActionButton from '../components/button'
+import ActionButton from '../components/button-with-row'
+import notify from '../components/store-notification';
 
 const AddAccount = () => {
 
@@ -14,7 +15,7 @@ const AddAccount = () => {
   const { register, handleSubmit, watch, errors } = useForm();
 
   const onSubmit = data => {
-    const apiUrl = `http://127.0.0.1:8000/api/v1/whm/account/create`;
+    const apiUrl = `http://127.0.0.1:8000/api/v1/whm/account`;
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -23,7 +24,7 @@ const AddAccount = () => {
     fetch(apiUrl, requestOptions)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
+        notify(res.message)
       });
   };
   

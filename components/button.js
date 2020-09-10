@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Button = ({ text, type, active = true, onClick }) => {
+const Button = ({ text, type, active = true, onClick, id }) => {
 
     const Button = styled.button`
     /* Adapt the colors based on primary prop */
@@ -20,7 +20,7 @@ const Button = ({ text, type, active = true, onClick }) => {
     `;
 
     return (
-        <Button disabled={!active} type={type} onClick={ onClick }> { text } </Button>
+        <Button id={id} disabled={!active} type={type} onClick={ onClick }> { text } </Button>
     )
 }
 export default Button

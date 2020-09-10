@@ -15,6 +15,7 @@
     "react-data-table-component": "^6.11.3",
     "react-dom": "16.13.1",
     "react-hook-form": "^6.7.2",
+    "react-notifications-component": "^2.4.0",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {

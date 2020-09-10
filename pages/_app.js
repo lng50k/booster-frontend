@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components"
+import Notification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -20,6 +22,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
+      <Notification />
       <Component {...pageProps} />
     </>
   )
