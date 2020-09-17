@@ -57,3 +57,5 @@ export const domainWhiteList = [
     "hii.gazri.com",
     "rebox.gazri.com"
 ]
+
+export const apiDomain = process.env.API_DOMAIN

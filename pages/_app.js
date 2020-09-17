@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components"
 import Notification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import 'react-confirm-alert/src/react-confirm-alert.css'
+config.autoAddCss = false
 
 const GlobalStyle = createGlobalStyle`
   @font-face {

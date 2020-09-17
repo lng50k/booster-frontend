@@ -13,9 +13,11 @@ const notify = (message, reload = false) => {
         duration: 3000,
         onScreen: true
         }
-    });
+    })
     
-    if(reload)
-        location.reload()
+    if(reload) {
+        setTimeout( () => location.reload(), 3000)
+    }
+        
 }
 export default notify

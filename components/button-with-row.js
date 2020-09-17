@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const ActionButton = ({ text, type, active = true, onClick }) => {
+const ActionButton = ({ type, active = true, onClick, children }) => {
 
     const Button = styled.button`
     /* Adapt the colors based on primary prop */
@@ -23,7 +23,7 @@ const ActionButton = ({ text, type, active = true, onClick }) => {
 
     return (
         <div style={{textAlign: 'right'}}>
-            <Button disabled={!active} type={type} onClick={ onClick }> { text } </Button>
+            <Button disabled={!active} type={type} onClick={ onClick }> { children } </Button>
         </div>
     )
 }
