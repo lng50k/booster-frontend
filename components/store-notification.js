@@ -1,19 +1,23 @@
 import { store } from 'react-notifications-component';
 
-const notify = (message, reload = false) => {
-    store.addNotification({
+const notify = (message, reload = false, type = "success") => {
+    const notificationOption = {
         title: "",
         message: message,
-        type: "success",
+        type: type,
         insert: "top",
         container: "top-right",
         animationIn: ["animated", "fadeIn"],
-        animationOut: ["animated", "fadeOut"],
-        dismiss: {
-        duration: 3000,
-        onScreen: true
+        animationOut: ["animated", "fadeOut"]
+    }
+    if(type === "success")
+    {
+        notificationOption.dismiss = {
+            duration: 3000,
+            onScreen: true
         }
-    })
+    }
+    store.addNotification(notificationOption)
     
     if(reload) {
         setTimeout( () => location.reload(), 3000)

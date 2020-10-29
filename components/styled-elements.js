@@ -29,6 +29,7 @@ export const Container = styled.div`
     margin: 0 auto;
     width: 100%;
     filter: ${props => props.isLoading ? "blur(3px)" : "none"};
+    pointer-events: ${props => props.isLoading ? "none" : "initial"};
   `
   
 export const Footer = styled.footer`

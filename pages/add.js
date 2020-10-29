@@ -32,8 +32,13 @@ const AddAccount = () => {
       .then((res) => res.json())
       .then((res) => {
         setIsLoading(false)
-        setIsSuccess(true)
-        notify(res.message)
+        if(res.status === "failed") {
+          notify(res.message, false, "danger")
+        }
+        else {
+          setIsSuccess(true)
+          notify(res.message)
+        }
       });
   };
   

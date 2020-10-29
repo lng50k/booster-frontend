@@ -31,8 +31,8 @@ module.exports = withFonts(
 
 module.exports = {
   env: {
-    // API_DOMAIN: "https://127.0.0.1:8000/api/v1/"
-    API_DOMAIN: "http://booster.gazri.net:8000/api/v1/"
+    API_DOMAIN: "http://127.0.0.1:8000/api/v1/"
+    // API_DOMAIN: "http://booster.gazri.net:8000/api/v1/"
   },
 }
 
